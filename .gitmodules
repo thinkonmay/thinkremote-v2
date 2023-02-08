@@ -1,0 +1,15 @@
+[submodule "server/hub"]
+	path = server/hub
+	url = https://github.com/thinkonmay/thinkremote-rtchub
+[submodule "server/hid"]
+	path = server/hid
+	url = https://github.com/thinkonmay/hid-server
+[submodule "server/daemon"]
+	path = server/daemon
+	url = https://github.com/thinkonmay/thinkshare-daemon
+[submodule "client/browser-core"]
+	path = client/browser-core
+	url = https://github.com/thinkonmay/thinkremote-browser-core
+[submodule "client/browser"]
+	path = client/browser
+	url = https://github.com/thinkonmay/thinkshare-browser
