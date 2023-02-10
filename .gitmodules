@@ -13,3 +13,6 @@
 [submodule "client/browser"]
 	path = client/browser
 	url = https://github.com/thinkonmay/thinkshare-browser
+[submodule "signaling"]
+	path = signaling
+	url = https://github.com/thinkonmay/signaling-server
