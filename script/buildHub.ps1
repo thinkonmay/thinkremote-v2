@@ -1,4 +1,5 @@
-$env:PKG_CONFIG_PATH = "C:\gstreamer\1.0\msvc_x86_64\lib\pkgconfig"
+$env:Path += ';C:\gstreamer\1.22.0\msvc_x86_64\bin'
+$env:PKG_CONFIG_PATH = "C:\gstreamer\1.22.0\msvc_x86_64\lib\pkgconfig"
 
 
 # build GO 

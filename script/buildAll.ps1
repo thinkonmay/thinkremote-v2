@@ -1,10 +1,11 @@
-$env:PKG_CONFIG_PATH = "C:\gstreamer\1.0\msvc_x86_64\lib\pkgconfig"
+$env:Path += ';C:\gstreamer\1.22.0\msvc_x86_64\bin'
+$env:PKG_CONFIG_PATH = "C:\gstreamer\1.22.0\msvc_x86_64\lib\pkgconfig"
 
 Remove-Item -Recurse -Force "./package/"
 
 # install gstreamer
-# Invoke-WebRequest -Uri "https://github.com/OnePlay-Internet/webrtc-proxy/releases/download/asset-gstreamer/gstreamer-1.21.3.zip" -OutFile artifact/gstreamer.zip 
-Expand-Archive artifact/gstreamer.zip -DestinationPath  package/hub
+# Invoke-WebRequest -Uri "https://github.com/thinkonmay/thinkremote-rtchub/releases/download/asset-gstreamer-1.22.0/lib.zip" -OutFile artifact/lib.zip 
+Expand-Archive artifact/lib.zip -DestinationPath  package/hub
 
 
 # build GO 
@@ -32,3 +33,6 @@ dotnet build . --output "bin" --self-contained true --runtime win-x64
 Set-Location ../..
 
 robocopy .\server\hid\bin package/hid
+
+
+Compress-Archive .\package -DestinationPath .\artifact\thinkremote.zip 
