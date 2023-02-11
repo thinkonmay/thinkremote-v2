@@ -1,2 +1,4 @@
 artifact/
 package/
+# Local Netlify folder
+.netlify
