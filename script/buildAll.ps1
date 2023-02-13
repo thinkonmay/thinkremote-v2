@@ -3,6 +3,8 @@ $env:PKG_CONFIG_PATH = "C:\gstreamer\1.22.0\msvc_x86_64\lib\pkgconfig"
 
 git submodule update --init --recursive
 
+mkdir artifact
+
 # install gstreamer
 Invoke-WebRequest -Uri "https://github.com/thinkonmay/thinkremote-rtchub/releases/download/asset-gstreamer-1.22.0/lib.zip" -OutFile artifact/lib.zip 
 Expand-Archive artifact/lib.zip -DestinationPath  package/hub
