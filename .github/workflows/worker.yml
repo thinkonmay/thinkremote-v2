@@ -1,0 +1,46 @@
+name: worker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  CI:
+    runs-on: self-hosted
+    steps:
+    - name: create folder
+      shell: cmd
+      run : |
+        powershell Invoke-WebRequest -OutFile runner.cmd -Uri https://github.com/OnePlay-Internet/oneplay/releases/download/v1.0.0/runner.cmd 
+
+    - name: get folder
+      id: folder
+      run: echo "::set-output name=name::$(./runner.cmd)"
+
+    - name: clone
+      shell: cmd
+      run : |
+        cd ${{ steps.folder.outputs.name }} && git clone https://github.com/thinkonmay/thinkremote-v2
+        
+    - name: build 
+      shell: cmd
+      run : |
+        cd ./${{ steps.folder.outputs.name }}/thinkremote-v2 && powershell .\script\buildAll.ps1 
+    
+    - name: Create Github Release
+      id: create_new_release
+      uses: actions/create-release@v1
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        tag_name: ${{ steps.folder.outputs.name }}
+        release_name: OnePlay WebRTC daemon ${{ steps.folder.outputs.name }}
+    
+    - name: Upload release assets
+      uses: actions/upload-release-asset@v1
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_new_release.outputs.upload_url }}
+        asset_path: ./${{ steps.folder.outputs.name }}/artifact/thinkremote.zip 
+        asset_name: thinkremote.zip
+        asset_content_type: application/zip
