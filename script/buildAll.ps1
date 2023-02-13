@@ -36,5 +36,7 @@ Set-Location ../..
 
 robocopy .\server\hid\bin package/hid
 
+robocopy .\script .\package deployAsTask.ps1 
+robocopy .\script .\package stopDaemon.ps1   
 
 Compress-Archive .\package -DestinationPath .\artifact\thinkremote.zip 
