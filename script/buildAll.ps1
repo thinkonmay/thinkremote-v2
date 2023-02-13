@@ -14,11 +14,11 @@ Expand-Archive artifact/lib.zip -DestinationPath  package/hub
 go clean --cache
 
 Set-Location .\server\daemon
-go build -o daemon.exe
+go build -ldflags -H=windowsgui -o daemon.exe
 Set-Location ../../
 
 Set-Location .\server\hub
-go build  -o hub.exe  ./cmd/server/
+go build -ldflags -H=windowsgui -o hub.exe  ./cmd/server/
 Set-Location ../../
 
 

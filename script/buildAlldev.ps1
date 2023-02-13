@@ -5,18 +5,18 @@ Remove-Item -Recurse -Force "./package/"
 
 # install gstreamer
 # Invoke-WebRequest -Uri "https://github.com/thinkonmay/thinkremote-rtchub/releases/download/asset-gstreamer-1.22.0/lib.zip" -OutFile artifact/lib.zip 
-Expand-Archive artifact/lib.zip -DestinationPath  package/hub
+Expand-Archive ./artifact/lib.zip -DestinationPath  ./package/hub
 
 
 # build GO 
 go clean --cache
 
 Set-Location .\server\daemon
-go build -o daemon.exe
+go build -ldflags -H=windowsgui -o daemon.exe
 Set-Location ../../
 
 Set-Location .\server\hub
-go build  -o hub.exe  ./cmd/server/
+go build -ldflags -H=windowsgui -o hub.exe  ./cmd/server/
 Set-Location ../../
 
 
