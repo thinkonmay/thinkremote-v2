@@ -1,4 +1,6 @@
 #Requires -RunAsAdministrator
+
+# auto run daemon after logon
 $current_dir = Get-Location
 
 
@@ -11,3 +13,7 @@ $settings = New-ScheduledTaskSettingsSet -Hidden
 $task = New-ScheduledTask -Action $action  -Trigger $trigger -Settings $settings -Principal $principal
 
 Register-ScheduledTask thinkremote -InputObject $task 
+
+
+# disable UAC (User Access Control)
+Set-ItemProperty -Path REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0
