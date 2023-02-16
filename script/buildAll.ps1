@@ -38,5 +38,7 @@ robocopy .\server\hid\bin package/hid
 
 robocopy .\script .\package deployAsTask.ps1 
 robocopy .\script .\package stopDaemon.ps1   
+robocopy .\script .\package PsExec64.exe
+robocopy .\script .\package nssm.exe
 
 Compress-Archive .\package -DestinationPath .\artifact\thinkremote.zip 
