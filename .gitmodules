@@ -16,3 +16,9 @@
 [submodule "signaling"]
 	path = signaling
 	url = https://github.com/thinkonmay/signaling-server
+[submodule "client/thinkremote-flutter"]
+	path = client/thinkremote-flutter
+	url = https://github.com/thinkonmay/thinkremote-flutter
+[submodule "client/thinkremote-flutter-core"]
+	path = client/thinkremote-flutter-core
+	url = https://github.com/thinkonmay/flutter_webrtc_remote_desktop
