@@ -6,7 +6,7 @@ git submodule update --init --recursive
 mkdir artifact
 
 # install gstreamer
-# Invoke-WebRequest -Uri "https://github.com/thinkonmay/thinkremote-rtchub/releases/download/asset-gstreamer-1.22.0/lib.zip" -OutFile artifact/lib.zip 
+Invoke-WebRequest -Uri "https://github.com/thinkonmay/thinkremote-rtchub/releases/download/asset-gstreamer-1.22.0/lib.zip" -OutFile artifact/lib.zip 
 Expand-Archive artifact/lib.zip -DestinationPath  package/hub
 
 
