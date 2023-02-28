@@ -22,3 +22,6 @@
 [submodule "client/thinkremote-flutter-core"]
 	path = client/thinkremote-flutter-core
 	url = https://github.com/thinkonmay/flutter_webrtc_remote_desktop
+[submodule "server/watcher"]
+	path = server/watcher
+	url = https://github.com/pigeatgarlic/watcher
