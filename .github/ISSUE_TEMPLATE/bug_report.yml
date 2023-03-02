@@ -9,6 +9,18 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: type-bug
+    attributes:
+      label: Where did this bug come from?
+      multiple: false
+      options:
+        - Gamepad
+        - Virtual Gamepad
+        - Mouse
+      other options:
+        key: value
+        
   - type: textarea
     id: what-happened
     attributes:
