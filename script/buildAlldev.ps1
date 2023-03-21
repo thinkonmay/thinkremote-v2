@@ -16,7 +16,7 @@ go build -ldflags -H=windowsgui -o daemon.exe
 Set-Location ../../
 
 Set-Location .\server\hub
-go build -ldflags -H=windowsgui -o hub.exe  ./cmd/server/
+go build -o hub.exe  ./cmd/server/
 Set-Location ../../
 
 

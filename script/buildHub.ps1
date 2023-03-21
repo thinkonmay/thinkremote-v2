@@ -6,7 +6,7 @@ $env:PKG_CONFIG_PATH = "C:\gstreamer\1.22.0\msvc_x86_64\lib\pkgconfig"
 go clean --cache
 
 Set-Location .\server\hub
-go build -ldflags -H=windowsgui -o hub.exe  ./cmd/server/
+go build -o hub.exe  ./cmd/server/
 Set-Location ../../
 
 Remove-Item "./package/hub/bin/hub.exe"
